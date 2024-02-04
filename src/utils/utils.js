@@ -1,3 +1,5 @@
+import { homedir } from 'node:os';
+
 export const extractArgument = (userInput, argNumber) => {
   const args = userInput.trim().split(/\s+/);
   return args[argNumber];
@@ -14,4 +16,8 @@ export const logWithColor = (text, color) => {
   };
 
   console.log(`${colors[color]}${text}${colors.reset}`);
+};
+
+export const getHomeDir = () => {
+  return homedir();
 };

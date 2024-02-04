@@ -1,3 +1,19 @@
+import { cwd } from 'node:process';
+import { add } from '../commands/filesystem/add.js';
+import { cat } from '../commands/filesystem/cat.js';
+import { cd } from '../commands/filesystem/cd.js';
+import { cp } from '../commands/filesystem/cp.js';
+import { ls } from '../commands/filesystem/ls.js';
+import { mv } from '../commands/filesystem/mv.js';
+import { rm } from '../commands/filesystem/rm.js';
+import { rn } from '../commands/filesystem/rn.js';
+import { up } from '../commands/filesystem/up.js';
+import { calculateHash } from '../commands/hash/hash.js';
+import { arch } from '../commands/os-info/arch.js';
+import { cpus } from '../commands/os-info/cpus.js';
+import { eol } from '../commands/os-info/eol.js';
+import { homedir } from '../commands/os-info/homedir.js';
+import { username } from '../commands/os-info/username.js';
 import { COMMANDS, parseCommand } from '../parseCommand.js';
 import { logWithColor } from '../utils/utils.js';
 
@@ -46,6 +62,30 @@ export const setInputEvent = () => {
           await rm(userInput);
           break;
 
+        case COMMANDS.HASH:
+          await calculateHash(userInput);
+          break;
+
+        case COMMANDS.OS_EOL:
+          eol();
+          break;
+
+        case COMMANDS.OS_CPUS:
+          cpus();
+          break;
+
+        case COMMANDS.OS_HOMEDIR:
+          homedir();
+          break;
+
+        case COMMANDS.OS_USERNAME:
+          username();
+          break;
+
+        case COMMANDS.OS_ARCH:
+          arch();
+          break;
+
         case COMMANDS.EXIT:
           process.exit(0);
 
@@ -57,6 +97,6 @@ export const setInputEvent = () => {
       logWithColor(`Operation failed\n${err.message}`, 'red');
     }
 
-    console.log(`You are currently in ${cwd()}`);
+    console.log(`\nYou are currently in ${cwd()}`);
   });
 };
