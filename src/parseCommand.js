@@ -11,6 +11,8 @@ export const COMMANDS = {
   MV: 'mv',
   RM: 'rm',
   HASH: 'hash',
+  COMPRESS: 'compress',
+  DECOMPRESS: 'decompress',
   EXIT: '.exit',
   OS: 'os',
   OS_EOL: '--EOL',
