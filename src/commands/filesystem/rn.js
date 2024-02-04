@@ -5,11 +5,12 @@ import { extractArgument } from '../../utils/utils.js';
 
 export const rn = async (userInput) => {
   const parsedSourcePath = extractArgument(userInput, 1);
-  const renamedFilename = extractArgument(userInput, 2);
+  const parsedDestPath = extractArgument(userInput, 2);
 
-  const sourceFilePath = path.join(cwd(), parsedSourcePath);
+  const destFilename = path.basename(parsedDestPath);
+  const sourceFilePath = path.resolve(cwd(), parsedSourcePath);
   const sourceFileDir = path.dirname(sourceFilePath);
-  const renamedFilePath = path.join(sourceFileDir, renamedFilename);
+  const renamedFilePath = path.resolve(sourceFileDir, destFilename);
 
   await fs.rename(sourceFilePath, renamedFilePath);
 };

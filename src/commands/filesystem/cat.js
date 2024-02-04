@@ -6,7 +6,7 @@ import { extractArgument } from '../../utils/utils.js';
 
 export const cat = async (userInput) => {
   const parsedPath = extractArgument(userInput, 1);
-  const sourceFilePath = path.join(cwd(), parsedPath);
+  const sourceFilePath = path.resolve(cwd(), parsedPath);
   const sourceStream = createReadStream(sourceFilePath);
 
   await pipeline(sourceStream, stdout, { end: false });
