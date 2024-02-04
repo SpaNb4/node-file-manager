@@ -1,4 +1,6 @@
 import { cwd } from 'node:process';
+import { compress } from '../commands/archiving/compress.js';
+import { decompress } from '../commands/archiving/decompress.js';
 import { add } from '../commands/filesystem/add.js';
 import { cat } from '../commands/filesystem/cat.js';
 import { cd } from '../commands/filesystem/cd.js';
@@ -64,6 +66,14 @@ export const setInputEvent = () => {
 
         case COMMANDS.HASH:
           await calculateHash(userInput);
+          break;
+
+        case COMMANDS.COMPRESS:
+          await compress(userInput);
+          break;
+
+        case COMMANDS.DECOMPRESS:
+          await decompress(userInput);
           break;
 
         case COMMANDS.OS_EOL:
