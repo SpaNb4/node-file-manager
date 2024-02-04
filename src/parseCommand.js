@@ -10,9 +10,23 @@ export const COMMANDS = {
   CP: 'cp',
   MV: 'mv',
   RM: 'rm',
+  HASH: 'hash',
   EXIT: '.exit',
+  OS: 'os',
+  OS_EOL: '--EOL',
+  OS_CPUS: '--cpus',
+  OS_HOMEDIR: '--homedir',
+  OS_USERNAME: '--username',
+  OS_ARCH: '--architecture',
 };
 
 export const parseCommand = (userInput) => {
-  return extractArgument(userInput, 0);
+  const command = extractArgument(userInput, 0);
+
+  if (command === COMMANDS.OS) {
+    const argument = extractArgument(userInput, 1);
+    return argument;
+  }
+
+  return command;
 };

@@ -4,7 +4,7 @@ import { cwd } from 'node:process';
 
 export const ls = async () => {
   const files = await fs.readdir(cwd());
-  const arr = [];
+  const fileInfoArray = [];
 
   // TODO add file sorting
   for (const file of files) {
@@ -12,8 +12,8 @@ export const ls = async () => {
     const isFile = fileStat.isFile();
     const fileType = isFile ? 'file' : 'directory';
 
-    arr.push({ Name: file, Type: fileType });
+    fileInfoArray.push({ Name: file, Type: fileType });
   }
 
-  console.table(arr, ['Name', 'Type']);
+  console.table(fileInfoArray, ['Name', 'Type']);
 };

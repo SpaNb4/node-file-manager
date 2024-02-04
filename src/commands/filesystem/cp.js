@@ -1,8 +1,8 @@
 import { createReadStream, createWriteStream } from 'node:fs';
 import path from 'node:path';
-import { pipeline } from 'node:stream/promises';
-import { extractArgument } from '../utils/utils.js';
 import { cwd } from 'node:process';
+import { pipeline } from 'node:stream/promises';
+import { extractArgument } from '../../utils/utils.js';
 
 export const cp = async (userInput) => {
   const parsedSourcePath = extractArgument(userInput, 1);
