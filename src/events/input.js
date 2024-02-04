@@ -25,7 +25,6 @@ export const setInputEvent = () => {
 
     const command = parseCommand(userInput);
 
-    // TODO add support for filenames with spaces
     try {
       switch (command) {
         case COMMANDS.UP:
