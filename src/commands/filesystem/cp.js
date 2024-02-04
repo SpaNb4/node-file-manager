@@ -6,12 +6,12 @@ import { extractArgument } from '../../utils/utils.js';
 
 export const cp = async (userInput) => {
   const parsedSourcePath = extractArgument(userInput, 1);
-  const destFolder = extractArgument(userInput, 2);
-  const sourceFilePath = path.join(cwd(), parsedSourcePath);
-  const destFolderPath = path.join(cwd(), destFolder);
+  const parsedDestPath = extractArgument(userInput, 2);
+  const sourceFilePath = path.resolve(cwd(), parsedSourcePath);
+  const destFolderPath = path.resolve(cwd(), parsedDestPath);
 
   const sourceFilename = path.basename(sourceFilePath);
-  const destFilePath = path.join(destFolderPath, sourceFilename);
+  const destFilePath = path.resolve(destFolderPath, sourceFilename);
   const sourceStream = createReadStream(sourceFilePath);
   const destStream = createWriteStream(destFilePath);
 
