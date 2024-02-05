@@ -1,9 +1,12 @@
 import fs from 'node:fs/promises';
 import { homedir } from 'node:os';
 
-export const extractArgument = (userInput, argNumber) => {
-  const args = userInput.trim().match(/(?:[^\s"]+|"[^"]*")/g) || [];
+export const extractArguments = (userInput) => {
+  return userInput.trim().match(/(?:[^\s"]+|"[^"]*")/g) || [];
+};
 
+export const extractArgument = (userInput, argNumber) => {
+  const args = extractArguments(userInput);
   let argument = args[argNumber] || '';
   if (argument.startsWith('"') && argument.endsWith('"')) {
     argument = argument.substring(1, argument.length - 1);
@@ -29,9 +32,9 @@ export const getHomeDir = () => {
   return homedir();
 };
 
-export const checkFileExists = async () => {
+export const checkFileExists = async (filePath) => {
   try {
-    await fs.access(sourceFilePath);
+    await fs.access(filePath);
   } catch (error) {
     throw new Error('File does not exist.');
   }

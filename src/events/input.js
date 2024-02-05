@@ -21,81 +21,80 @@ import { logWithColor } from '../utils/utils.js';
 
 export const setInputEvent = () => {
   process.stdin.on('data', async (data) => {
-    const userInput = data.toString().replace(/(\r\n|\n|\r)/gm, '');
-
-    const command = parseCommand(userInput);
-
     try {
+      const userInput = data.toString().replace(/(\r\n|\n|\r)/gm, '');
+      const command = parseCommand(userInput);
+
       switch (command) {
-        case COMMANDS.UP:
+        case COMMANDS.UP.commandName:
           up();
           break;
 
-        case COMMANDS.CD:
+        case COMMANDS.CD.commandName:
           cd(userInput);
           break;
 
-        case COMMANDS.LS:
+        case COMMANDS.LS.commandName:
           await ls();
           break;
 
-        case COMMANDS.CAT:
+        case COMMANDS.CAT.commandName:
           await cat(userInput);
           break;
 
-        case COMMANDS.ADD:
+        case COMMANDS.ADD.commandName:
           await add(userInput);
           break;
 
-        case COMMANDS.RN:
+        case COMMANDS.RN.commandName:
           await rn(userInput);
           break;
 
-        case COMMANDS.CP:
+        case COMMANDS.CP.commandName:
           await cp(userInput);
           break;
 
-        case COMMANDS.MV:
+        case COMMANDS.MV.commandName:
           await mv(userInput);
           break;
 
-        case COMMANDS.RM:
+        case COMMANDS.RM.commandName:
           await rm(userInput);
           break;
 
-        case COMMANDS.HASH:
+        case COMMANDS.HASH.commandName:
           await calculateHash(userInput);
           break;
 
-        case COMMANDS.COMPRESS:
+        case COMMANDS.COMPRESS.commandName:
           await compress(userInput);
           break;
 
-        case COMMANDS.DECOMPRESS:
+        case COMMANDS.DECOMPRESS.commandName:
           await decompress(userInput);
           break;
 
-        case COMMANDS.OS_EOL:
+        case COMMANDS.OS_EOL.commandName:
           eol();
           break;
 
-        case COMMANDS.OS_CPUS:
+        case COMMANDS.OS_CPUS.commandName:
           cpus();
           break;
 
-        case COMMANDS.OS_HOMEDIR:
+        case COMMANDS.OS_HOMEDIR.commandName:
           homedir();
           break;
 
-        case COMMANDS.OS_USERNAME:
+        case COMMANDS.OS_USERNAME.commandName:
           username();
           break;
 
-        case COMMANDS.OS_ARCH:
+        case COMMANDS.OS_ARCH.commandName:
           arch();
           break;
 
-        case COMMANDS.EXIT:
+        case COMMANDS.EXIT.commandName:
           process.exit(0);
 
         default:
