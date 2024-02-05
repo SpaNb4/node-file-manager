@@ -1,4 +1,4 @@
-import { argv, cwd } from 'node:process';
+import { cwd } from 'node:process';
 import { logWithColor } from './utils/utils.js';
 
 export const getUsernameFromArgs = () => {
