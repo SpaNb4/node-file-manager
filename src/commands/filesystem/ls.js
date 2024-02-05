@@ -9,7 +9,7 @@ export const ls = async () => {
   const folders = [];
   const filesList = [];
   for (const file of files) {
-    const fileStat = await fs.lstat(path.resolve(cwd(), file));
+    const fileStat = await fs.stat(path.resolve(cwd(), file));
     const isFile = fileStat.isFile();
     const fileType = isFile ? 'file' : 'directory';
     const fileInfo = { Name: file, Type: fileType };

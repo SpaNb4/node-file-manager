@@ -1,3 +1,4 @@
+import fs from 'node:fs/promises';
 import { homedir } from 'node:os';
 
 export const extractArgument = (userInput, argNumber) => {
@@ -25,4 +26,12 @@ export const logWithColor = (text, color) => {
 
 export const getHomeDir = () => {
   return homedir();
+};
+
+export const checkFileExists = async () => {
+  try {
+    await fs.access(sourceFilePath);
+  } catch (error) {
+    throw new Error('File does not exist.');
+  }
 };
