@@ -9,7 +9,7 @@ export const COMMANDS = {
   RN: { commandName: 'rn', expectedArgs: 2 },
   CP: { commandName: 'cp', expectedArgs: 2 },
   MV: { commandName: 'mv', expectedArgs: 2 },
-  RM: { commandName: 'rm', expectedArgs: 2 },
+  RM: { commandName: 'rm', expectedArgs: 1 },
   HASH: { commandName: 'hash', expectedArgs: 1 },
   COMPRESS: { commandName: 'compress', expectedArgs: 2 },
   DECOMPRESS: { commandName: 'decompress', expectedArgs: 2 },
