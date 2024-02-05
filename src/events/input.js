@@ -1,5 +1,6 @@
 import { compress } from '../commands/archiving/compress.js';
 import { decompress } from '../commands/archiving/decompress.js';
+import { COMMANDS, parseCommand } from '../commands/commands.js';
 import { add } from '../commands/filesystem/add.js';
 import { cat } from '../commands/filesystem/cat.js';
 import { cd } from '../commands/filesystem/cd.js';
@@ -16,7 +17,6 @@ import { eol } from '../commands/os-info/eol.js';
 import { homedir } from '../commands/os-info/homedir.js';
 import { username } from '../commands/os-info/username.js';
 import { getCurrentDirectory } from '../directory.js';
-import { COMMANDS, parseCommand } from '../parseCommand.js';
 import { logWithColor } from '../utils/utils.js';
 
 export const setInputEvent = () => {

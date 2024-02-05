@@ -1,4 +1,4 @@
-import { extractArgument } from './utils/utils.js';
+import { extractArgument } from '../utils/utils.js';
 
 export const COMMANDS = {
   UP: 'up',

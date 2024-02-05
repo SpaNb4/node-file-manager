@@ -11,6 +11,7 @@ export const extractArgument = (userInput, argNumber) => {
 
   return argument;
 };
+
 export const logWithColor = (text, color) => {
   const colors = {
     reset: '\x1b[0m',
