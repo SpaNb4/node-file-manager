@@ -1,4 +1,4 @@
-import { cwd } from 'node:process';
+import { getCurrentDirectory } from './directory.js';
 import { logWithColor } from './utils/utils.js';
 
 export const getUsernameFromArgs = () => {
@@ -25,5 +25,5 @@ export const getUsernameFromArgs = () => {
 
 export const greetUser = (username) => {
   console.log(`Welcome to the File Manager, ${username}!`);
-  console.log(`You are currently in ${cwd()}`);
+  console.log(`You are currently in ${getCurrentDirectory()}`);
 };

@@ -1,8 +1,8 @@
-import { cwd } from 'node:process';
+import { getCurrentDirectory } from '../../directory.js';
 import { cp } from './cp.js';
 import { rm } from './rm.js';
 
 export const mv = async (userInput) => {
-  await cp(userInput, cwd());
-  await rm(userInput, cwd());
+  await cp(userInput, getCurrentDirectory());
+  await rm(userInput, getCurrentDirectory());
 };

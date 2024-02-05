@@ -1,6 +1,6 @@
 import { setExitEvents } from './events/exit.js';
 import { setInputEvent } from './events/input.js';
-import { setStartingDir } from './setStartingDir.js';
+import { setStartingDir } from './directory.js';
 import { getUsernameFromArgs, greetUser } from './user.js';
 
 const init = async () => {

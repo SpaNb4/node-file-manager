@@ -1,15 +1,15 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { cwd } from 'node:process';
+import { getCurrentDirectory } from '../../directory.js';
 
 export const ls = async () => {
-  const files = await fs.readdir(cwd());
+  const files = await fs.readdir(getCurrentDirectory());
   const fileInfoArray = [];
 
   const folders = [];
   const filesList = [];
   for (const file of files) {
-    const fileStat = await fs.stat(path.resolve(cwd(), file));
+    const fileStat = await fs.stat(path.resolve(getCurrentDirectory(), file));
     const isFile = fileStat.isFile();
     const fileType = isFile ? 'file' : 'directory';
     const fileInfo = { Name: file, Type: fileType };

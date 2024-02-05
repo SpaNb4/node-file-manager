@@ -1,4 +1,3 @@
-import { cwd } from 'node:process';
 import { compress } from '../commands/archiving/compress.js';
 import { decompress } from '../commands/archiving/decompress.js';
 import { add } from '../commands/filesystem/add.js';
@@ -16,6 +15,7 @@ import { cpus } from '../commands/os-info/cpus.js';
 import { eol } from '../commands/os-info/eol.js';
 import { homedir } from '../commands/os-info/homedir.js';
 import { username } from '../commands/os-info/username.js';
+import { getCurrentDirectory } from '../directory.js';
 import { COMMANDS, parseCommand } from '../parseCommand.js';
 import { logWithColor } from '../utils/utils.js';
 
@@ -106,6 +106,6 @@ export const setInputEvent = () => {
       logWithColor(`Operation failed\n${err.message}`, 'red');
     }
 
-    console.log(`\nYou are currently in ${cwd()}`);
+    console.log(`\nYou are currently in ${getCurrentDirectory()}`);
   });
 };

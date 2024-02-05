@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { cwd } from 'node:process';
+import { getCurrentDirectory } from '../../directory.js';
 import { extractArgument } from '../../utils/utils.js';
 
 export const rn = async (userInput) => {
@@ -8,7 +8,7 @@ export const rn = async (userInput) => {
   const parsedDestPath = extractArgument(userInput, 2);
 
   const destFilename = path.basename(parsedDestPath);
-  const sourceFilePath = path.resolve(cwd(), parsedSourcePath);
+  const sourceFilePath = path.resolve(getCurrentDirectory(), parsedSourcePath);
   const sourceFileDir = path.dirname(sourceFilePath);
   const renamedFilePath = path.resolve(sourceFileDir, destFilename);
 
